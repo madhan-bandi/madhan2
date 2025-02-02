@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Youtube html lo</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+                        button:hover{
+                background-color: lightgrey;
+                transition: 0.3s;
+            }
+            button:active{
+                opacity: 0.2;
+                transition: 0.3s;
+            }
+            .videoprew{
+                z-index: 50;
+            }
+            p{
+                margin-top: 0;
+                margin-bottom: 0;
+                display: inline-block;
+                font-family: roboto,arial;
+                font-size: small;
+            }
+            .thumnail{
+                width: 100%;
+                display: block;
+                border-radius: 10px;
+            }
+            .thumb{
+                position: relative;
+            }
+            .time{
+                position: absolute;
+                color: white;
+                background-color: black;
+                bottom: 3px;
+                right: 3px;
+            }
+            .captions{
+                display: inline-block;
+                font-weight: bold;
+            }
+            .author{
+                color: rgb(96, 96, 96);
+                display: block;
+            }
+            .count{
+                display: block;
+                color: rgb(96, 96, 96);
+                display: inline-block;
+            }
+            .videoprew{
+                display: grid;
+                column-gap: 16px;
+                row-gap: 40px;
+            } 
+            @media (max-width: 750px){
+                .videoprew{
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media (min-width: 751px) and (max-width: 999px){
+                .videoprew{
+                    grid-template-columns: 1fr 1fr 1fr ;
+                }
+            }    
+            @media (min-width: 1000px){
+                .videoprew{
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+            }
+            .container{
+                width: 100%;
+                display: inline-block;
+            }
+
+            
+            .profile1{
+                max-width: 40px;
+                border-radius: 25px;
+                vertical-align: top;
+
+            }
+            .incont{
+                display: inline-block;
+                max-width: 100%;
+            }
+            .descont{
+                display: grid;
+                grid-template-columns: 40px 1fr;   
+            }
+            .header{
+                height: 50px;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                background-color: white;
+                align-items: center;
+                z-index: 100;
+            }
+            .leftheader{
+                width: 200px;
+                display: flex;
+                justify-content: space-between;
+                flex-shrink: 0;
+            }
+            .rightheader{
+                width: 200px;
+                justify-content:end;
+                vertical-align: top;
+                display: flex;
+                justify-content: center;
+                flex-shrink: 0;
+                align-items: center;
+            }
+            .icon1{
+                width: 25px;
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+            .icon2{
+                width: 110px;
+            }
+            .icon3{
+                height: 43px;
+                width: 66px;
+                border-top-right-radius: 19px;
+                border-bottom-right-radius: 19px;
+                border-style: solid;
+                border-width: 1px;
+                border-left: none;
+            }
+            .icon31{
+                height: 33px;  
+            }
+            .icon4{
+                height: 45px;
+                width: 45px;
+                border-radius: 24px;
+                border: none;
+                margin-left: 10px;
+            }
+            .icon41{
+                height: 28px;}
+            .icon5{
+                vertical-align: top;
+                width: 28px;
+            }
+            .icon6{
+                padding-left: 18px;
+                padding-right: 18px;
+                background-color: white;
+                color: #065fd4;
+                padding-top: 7px;
+                padding-bottom: 7px;
+                font-weight: bold;
+                font-family: roboto;
+                border-radius: 10px;
+
+            }
+            .icon7{
+                vertical-align: top;
+                height: 40px;
+                border-radius: 22px;
+            }
+
+            body{
+                padding-bottom: 1000px;
+                padding-top: 70px;
+                padding-left: 74px;
+            }
+            .middleheader{
+                margin-top: 3px;
+                display: flex;
+                flex-direction: row;
+                width: 600px;
+                align-items: center;
+                justify-content: center;
+            }
+            .searchbar{
+                padding-left: 20px;
+                font-size: 16px;
+                display: flex;
+                flex: 1;
+                border-right: none;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                height: 39.5px;
+                border-style: solid;
+                border-width: 1px;
+                cursor: text;
+            }
+            .ricon3{
+                position: relative;
+            }
+            .rside{
+                font-family: roboto;
+                font-size: 12px;
+                position: absolute;
+                color: white;
+                background-color: grey;
+                top: 55px;
+                right: 7px;
+                border-radius: 2px;
+                opacity: 0;
+            }
+            .ricon3:hover .rside{
+                opacity: 1;
+                transition: 0.4s;
+            }
+            .sidebox{
+                left: 0px;
+                top: 68px;
+                background-color: white;
+                bottom: 0px;
+                width: 72px;
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 12px;
+                font-family: roboto,Arial, Helvetica, sans-serif;
+                font-size: 10px;
+            }
+            .icons1{
+                width: 20px;
+                margin-bottom: 5px;
+            }
+            .icons2{
+                width: 22px;
+                margin-bottom: 5px;
+            }
+            .icons3{
+                width: 25px;
+                margin-bottom: 5px;
+            }
+            .icons4{
+                width: 25px;
+                margin-bottom: 5px;
+            }
+            .icons5{
+                width: 25px;
+                margin-bottom: 5px;
+            }
+            .icons6{
+                width: 20px;
+                margin-bottom: 5px;
+            }
+            .s1{
+                padding-top: 10px;
+                padding-bottom: 10px; 
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .s2{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .s3{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .s4{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .s5{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .s6{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .homecls{
+                display: flex;
+                flex-direction: column;
+            }
+            .ricon4{
+                position: relative;
+            }
+            .mic{
+                font-size: 12px;
+                border-radius: 5px;
+                position: absolute;
+                color: white;
+                background-color: grey;
+                top: 48px;
+                left: 25px;
+                opacity: 0;
+            }
+            .ricon4:hover .mic{
+                opacity: 1;
+                transition: 0.6s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidebox">
+            <div class="s1" style="align-items: center;">
+                <div><img class="icons1" src="icons.html/home-svgrepo-com.svg"></div>
+                <div>Home</div>
+            </div>
+            <div class="s2"style="align-items: center;">
+                <div><img class="icons2" src="icons.html/explore icon.svg"></div>
+                <div>explore</div>
+            </div>
+            <div class="s3" style="align-items: center;">
+                <div><img class="icons3" src="icons.html/subscriptions icon.svg"></div>
+                <div>subscriptions</div>
+            </div>
+            <div class="s4" >
+                <div><img class="icons4" src="icons.html/originals icon.svg"></div>
+                <div>originals</div>
+            </div>  
+            <div class="s5" >
+                <div><img class="icons6" src="icons.html/library icon.svg"></div>
+                <div>library</div>
+            </div> 
+        </div>
+        <div class="header" style="display: flex;
+            flex-direction: row;">
+            <div class="leftheader"><img class="icon1" src="icons.html/devproj1.svg">
+                <img class="icon2" src="icons.html/devproj2.svg"></div>
+            <div class="middleheader">
+                <input class="searchbar" type="text" placeholder="Search">                    
+                <div class="ricon3">
+                    <button class="icon3">
+                    <img class="icon31"  src="icons.html/devproj3.svg"></button>
+                    <div class="rside">Search</div></div>
+                    <div class="ricon4"><button class="icon4"><img class="icon41" src="icons.html/devproj4.svg">
+                        <div class="mic">voice Search</div></button></div></div>
+            <div class="rightheader">
+                <img class="icon5" src="icons.html/3dots.svg">
+                <div><button class="icon6">sign in</button></div></div>           
+        </div>
+        <div class="videoprew">
+            <div class="container">
+                <div class="thumb" ><img class="thumnail" src="forthumnails.html/thumnail1.1.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channel profile1.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Budget 2025 LIVE: No Income Tax Till 12 Lakhs Income | Nirmala Sitharaman On Income Tax |
+                        </p>
+                        <p class="author">India Today</p>  
+                        <p class="count">848 views &#183; streamed live 5 hours ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumnail2.1.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channel profile 2.2.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Union Budget 2025 | Union Minister Nitin Gadkari Reacts To Union Budget 2025
+                        </p>
+                        <p class="author">NDTV</p>  
+                        <p class="count">13K views &#183; 23 hours ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumnail3.1.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channels_profile 3.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Kaun Banega Crorepati S16 - Ep 124 - Coming Up Next - कौन बनेगा करोड़पति S16
+                        </p>
+                        <p class="author">SET India</p>  
+                        <p class="count">1M views  &#183; 3 days ago </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumnail4.1.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channels_profile 4.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            the karate kid (2010) - dre's cobra strike leaves cheng shook
+                        </p>
+                        <p class="author">Clips Coded</p>  
+                        <p class="count">4.2M views  &#183; 1 month ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumnail 6.1.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channels_profile 7.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Yogi Babu's Hilarious Game | Varun Doctor | Sivakarthikeyan | Priyanka Mohan | Telugu Comedy Scene
+                        </p>
+                        <p class="author">Gemini Comedy</p>  
+                        <p class="count">2.2M views &#183; 3 months ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumbnail-2.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channel-2.jpeg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Try Not To Laugh Challenge #9
+                        </p>
+                        <p class="author"> Markiplier</p>  
+                        <p class="count">19M views · 4 years ago</p>
+                    </div>        
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumnail 8.1.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channels_profile 8.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Bumrah hitting 35 
+                        </p>
+                        <p class="author">England & Wales Cricket Board</p>  
+                        <p class="count">
+                            50M views  &#183;  2 years ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/html.youtube thumnail1 malli.webp">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channel-1.jpeg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Talking Tech and AI with Google CEO Sundar Pichai!
+                        </p>
+                        <p class="author">Marques Brownlee</p>  
+                        <p class="count">3.4M views &#183; 6 months ago</p>
+                    </div>        
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumnail 5.1.webp">
+                    <div class="time">14:01</div></div>
+                
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channel 6.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Man Builds DIY ANTI-RAIN Motorcycle | Start to Finish by ‪@mwigmedia‬
+                        </p>
+                        <p class="author">Quantum Tech HD</p>  
+                        <p class="count">42M views  &#183; 3 months ago</p>
+                    </div>        
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumbnail 10.1.avif">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channels4_profile 10.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            He Hasn’t Slept Since 1962 (Doctors Don’t Know Why)
+                        </p>
+                        <p class="author">Drew Binsky</p>  
+                        <p class="count">20M views &#183; 2 years ago</p>
+                    </div>        
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumbnail 11.1.avif">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channel profile 11.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            Kohli Team Won 💥 _ Day 3 _ Delhi Vs Railways Ranji Trophy Match Highlights _ Day 3 Full Highlights
+                        </p>
+                        <p class="author">Tamil Bytes Cricket</p>  
+                        <p class="count">69K views &#183; 23 hours ago</p>
+                    </div>        
+                </div>
+            </div>
+            <div class="container">
+                <div class="thumb"><img class="thumnail" src="forthumnails.html/thumbnail 12.1.avif">
+                    <div class="time">14:01</div></div>
+                <div class="descount" style="display: grid;
+                grid-template-columns: 40px 1fr;
+                column-gap: 5px;
+                margin-top: 7px; ">
+                    <div>
+                        <img class="profile1" src="profile pictures.html/channels4_profile 12.1.jpg">
+                    </div>
+                    <div class="incont">
+                        <p class="captions">
+                            What Would Dying on Every Planet Be Like?
+                        </p>
+                        <p class="author">what if</p>  
+                        <p class="count">8.1M views &#183; 1 month ago</p>
+                    </div>        
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>
